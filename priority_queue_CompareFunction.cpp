@@ -27,4 +27,14 @@ int main()
           cout<<pq.top().first<<" "<<pq.top().second<<endl;
           pq.pop();
         }
+
+
+
+        //method 2
+        vector<int> nums1={4,3,2,7,5};
+        vector<int> nums2={1,2,7,3,5};
+         auto comp = [&nums1, &nums2](pair<int, int> a, pair<int, int> b) {
+            return nums1[a.first] + nums2[a.second] > nums1[b.first] + nums2[b.second];};
+        priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(comp)> min_heap(comp);
+        min_heap.emplace(0, 0);
 }
